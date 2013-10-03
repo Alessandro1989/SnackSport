@@ -1,0 +1,74 @@
+
+    body {
+        font-family: arial, Verdana, sans-serif; 
+	background-color: white;
+	width: 60em; 	 
+	margin-left: 10em;
+    }
+
+    form{
+      text-align: center;
+    }
+    h2{
+      text-align: center; 	 
+    
+    }
+    
+
+    
+    #table,#tablesport{
+	 margin-top: 3em;
+	 margin-left:5em;
+	 margin-right: 5em;
+	
+    }
+    
+  
+    
+    #placeholder{
+      margin-bottom: 2em;
+      margin-left: 4em;
+      width:800px;
+      height:320px;
+    }
+
+    #ok,#save {
+		margin-top: 1em;
+		width: 8em;
+		color: Blue;
+		margin-bottom: 1em;
+		margin-left: .5em;
+		
+    }
+    
+    #selectYear{
+      margin-left: -12em;
+    }
+    
+        
+    #table{
+		margin-top: .25em;
+		float: left;
+		clear: both;
+		margin-left: 10em;
+		
+    }
+    
+    
+   
+    
+    #error{
+	position: absolute;
+      margin-left: 54em;
+       margin-top:-5em;
+       font-size: .75em;
+       color: Darkred;
+    }
+    
+    #idSelectFood{
+      width: 16em;
+    }
+    
+    
+   
+      

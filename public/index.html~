@@ -1,0 +1,19 @@
+<html>
+    <head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	    <title>index</title>
+	    <script type="text/javascript" src="/lib/jquery-1.7.2.min.js" ></script>
+	    <script type="text/javascript" src="/src/login-glue.js" ></script>
+  	</head>
+  	<body>
+	  	<form method="post">
+	      <label for="userlabel">Username: </label>
+	      <input type="text" name="username" value="" id="user"/>
+	      <button type="submit" id="login">Login</button>
+
+	    </form>
+
+	    <table id="table"></table>
+ 	</body>
+
+</html>

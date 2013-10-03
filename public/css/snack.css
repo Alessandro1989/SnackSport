@@ -1,0 +1,106 @@
+
+    body {
+      font-family: Verdana, arial, sans-serif; 
+    	background-color: white;
+    	width: 60em; 	 
+    	margin-left:17%;
+    	margin-right:17%;
+    }
+
+    form{
+      text-align: center;
+    }
+
+    h2{
+      text-align: center;
+      color: lightblue;
+      text-shadow: 2px 2px 2px green;
+    }
+    
+    input#element {
+  		background-color: #000040;
+  		margin-left:0.5em;
+  		margin-bottom:2.5em;
+  		width: 3.5em; 
+  		height: 3.5em;
+    }
+    
+    #placeholder {
+      margin-bottom: 0.2em;
+      margin-left: 4em;
+      width:800px;
+      height:320px;
+    }
+
+    #ok,#save {
+  		margin-top: 1em;
+  		width: 8em;
+  		margin-bottom: 1em;
+  		margin-left: .5em;
+		
+    }
+    
+    #selectYear{
+      margin-left: -12em;
+    }
+
+    #table, #tablesport {
+      width: 23em;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    #table {
+      margin-left: 6em;
+      margin-right: .5em;
+      float: left;
+    }
+
+    #tablesport {
+      margin-right: 6em;
+      margin-left: .5em;
+      float: right;
+    }
+
+    td, th {
+      padding: 3px 5px;
+      font-size: .75em;
+    }
+
+    th {
+      color: lightgreen;
+      text-shadow: 1.5px 1.5px 1.5px blue;
+      font-size: .99em;
+    }
+
+    #error{
+	     position: absolute;
+       margin-left: 50em;
+       margin-top:-5em;
+       font-size: .75em;
+       color: Darkred;
+    }
+    
+    #idSelectFood{
+      width: 16em;
+    }
+    
+    p {
+      margin-bottom: 1em;
+      clear: both;
+      font-size: 0.7em;
+      text-align: center;
+      color: grey;
+    }
+
+    caption {
+      color: lightblue;
+      text-shadow: 2px 2px 2px green;
+      font-size: 1.5em;
+      margin-bottom: 0.4em;
+    }
+    
+   #username {
+    color: grey;
+   }
+      

@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    
+    <script type="text/javascript" src="/lib/jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" src="/lib/jquery.flot.js" ></script>
+    <script type="text/javascript" src="/lib/jquery.flot.navigate.js" ></script>
+    <script type="text/javascript" src="/src/snack.js" ></script>
+    <script type="text/javascript" src="/src/foodType.js" ></script>
+    <script type="text/javascript" src="/src/map.js" ></script>
+    <script type="text/javascript" src="/src/errors.js" ></script>
+    <script type="text/javascript" src="/src/table.js" ></script>
+    <script type="text/javascript" src="/src/graph.js" ></script>
+    <script type="text/javascript" src="/src/myDate.js" ></script>
+    <script type="text/javascript" src="/src/snack-glue.js" ></script>
+    <link rel="stylesheet" href="/css/snack.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    
+    <div id="title"><h2>Tracciamento calorie</h2></div>
+    
+    <form  id="addSnack" method="post">
+
+      <label for="selectType"></label>
+      <select name="selectType" id="type"></select>
+
+      <span> >> </span>
+
+      <span id="idtype"></span>
+      <select name="selectFood" id="idSelectFood"></select> 
+
+      <span> >> </span>
+
+      <span id="idquantity"></span>
+      <input type="text" name="quantity" value="" id="idQuantity"/>
+
+      <input type="hidden" name="user" value="" id="idUser"/>      
+      
+      </br>
+      <select name="selectYear" id="selectYear"></select>
+      <select name="selectMonth" id="selectMonth"></select>
+      <select name="selectDay" id="selectDay"></select>
+      
+      <button type="submit" id="ok">Ok</button>
+      <button type="button" id="save">Save</button>
+    
+      
+    </form>
+    
+    <div id="error"></div>
+
+    <div id="placeholder"></div>
+
+    <p><< grafico a scorrimento >><p>
+
+    <table id="table">
+    <table id="tablesport"></table>
+
+    <p>Developed by Alessandro novi' and Fabio Martignoni.</p>
+  </body>
+</html>

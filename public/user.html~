@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    
+    <script type="text/javascript" src="/lib/jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" src="/src/snack.js" ></script>
+    <script type="text/javascript" src="/src/map.js" ></script>
+    <script type="text/javascript" src="/src/errors.js" ></script>
+    <script type="text/javascript" src="/src/table.js" ></script>
+    <script type="text/javascript" src="/src/graph.js" ></script>
+    <script type="text/javascript" src="/src/myDate.js" ></script>
+    <script type="text/javascript" src="/src/snack-glue.js" ></script>
+    <script type="text/javascript" src="/src/snack-glueSupport.js" ></script>
+
+  </head>
+  <body>
+
+    <h1>Snack</h1>
+
+    <h2>Cosa ho mangiato oggi?</h2>
+
+    <form  id="addSnack" method="post">
+	    
+	    <label for="selectFood">Select type food: </label>
+  		<select name="selectFood" id="idSelectFood"></select>	
+
+      <label for="hiddenName">Quantity in grams: </label>
+      <input type="text" name="quantity" value="" id="idQuantity"/>
+
+      <input type="hidden" name="user" value="" id="idUser"/>      
+
+  		<button type="submit" id="admit">Ok</button>
+      <button type="button" id="save">Save</button></br>
+      
+
+      <select name="selectYear" id="selectYear"></select>
+      <select name="selectMonth" id="selectMonth"></select>
+      <select name="selectDay" id="selectDay"></select>
+    </form>
+
+
+    
+    <div id="error"></div>
+
+    <div>
+      <table id="table">
+        <caption>My meals</caption>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Calories</th>
+          <th>Date</th>
+        </tr>
+      </table>
+    </div>
+
+
+    <h1>Sport</h1>
+
+    <h2>Quale attività fisica ho fatto oggi?</h2>
+
+    <form  id="addSnack" method="post">
+	    
+      <label for="selectFood">Select type food: </label>
+      <select name="selectFood" id="idSelectFood"></select>	
+
+      <label for="hiddenName">Minutes: </label>
+      <input type="text" name="quantity" value="" id="idQuantity"/>
+
+      <input type="hidden" name="user" value="" id="idUser"/>      
+
+  		<button type="submit" id="admit">Admit</button>
+      <button type="button" id="save">Save</button></br>
+      
+
+      <select name="selectYear" id="selectYear"></select>
+      <select name="selectMonth" id="selectMonth"></select>
+      <select name="selectDay" id="selectDay"></select>
+    </form>
+
+
+    
+    <div id="error"></div>
+
+    <div>
+      <table id="table">
+        <caption>My meals</caption>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Calories</th>
+          <th>Date</th>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

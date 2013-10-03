@@ -1,0 +1,156 @@
+var snack_test = TestCase.create({
+    name: 'snack_test',
+
+    testComputesCalories: function() {
+
+    	var foodType = {
+    		nome: "Pasta di semola di grano duro",
+    		caloriesFor100Grams: 325,
+    	};
+
+    	var snack = new Snack(foodType, 100);
+        this.assertEquals(325, snack.calories());    
+
+        var snack2 = new Snack(foodType, 1000);
+        this.assertEquals(3250, snack2.calories()); 
+    },
+
+    testReturnsTheDay: function() {
+     	var today = new Date(2010,11,1,4,5,6);
+     	var snack = new Snack(undefined, 100, "fabio", today);
+     	this.assertEquals("2010/12/01", snack.getDate());
+    },
+
+    testFoodType: function() {
+        var carota = new FoodType("carota", "100");
+        this.assertEquals("carota", carota.name);
+        this.assertEquals("100", carota.caloriesFor100Grams);
+    },
+
+    testFoodList: function() {
+        var foods = new FoodList();
+     
+        foods.addFood("carotaFake", "100", "legumi");
+        foods.addFood("carota2Fake", "200", "legumi");
+          
+
+        this.assertEquals({"name": "carotaFake", "caloriesFor100Grams": "100"}, foods.getFood("carotaFake"));
+
+        this.assertEquals({"name": "carota2Fake", "caloriesFor100Grams": "200"}, foods.getFood("carota2Fake"));
+
+        this.assertEquals("100", foods.getCalories("carotaFake"));
+
+        this.assertEquals("200", foods.getCalories("carota2Fake"));
+
+        this.assertTrue(null==foods.getFood("feykxfgnef"));
+                          
+        var listSport=foods.getList("sport");
+        this.assertTrue(listSport.length>0);
+        this.assertEquals({"name": "ciclismo", "caloriesFor100Grams": "600"}, foods.getFood("ciclismo"));
+        this.assertEquals(foods.sport[2].name, "ballare (liscio)");
+        this.assertEquals(foods.sport[2].caloriesFor100Grams, "318");
+        
+         
+        
+        this.assertEquals({"name": "miele", "caloriesFor100Grams": "304"}, foods.getFood("miele"));
+        this.assertEquals(foods.dolci[3].name, "biscotti salati (tipo ritz)");
+        this.assertEquals(foods.dolci[3].caloriesFor100Grams, "466");
+        
+        
+        
+    },
+
+    testGroupSnacks: function() {
+        var spaghettiFake = {
+            nome: "spaghettiFake",
+            caloriesFor100Grams: 100,
+        };
+        var frittataFake = {
+            nome: "frittataFake",
+            caloriesFor100Grams: 200,
+        };
+        var gelatoFake = {
+            nome: "gelatoFake",
+            caloriesFor100Grams: 300,
+        };
+        var paneFake = {
+            nome: "paneFake",
+            caloriesFor100Grams: 200,
+        };
+        var caffeFake = {
+            nome: "caffeFake",
+            caloriesFor100Grams: 50,
+        };
+
+
+        var spaghetti = new Snack(spaghettiFake,"150","ale","2010/12/01");
+        var frittata = new Snack(frittataFake,"100","ale","2010/12/01");
+        var gelato = new Snack(gelatoFake,"100","ale","2010/12/04");
+        var pane = new Snack(paneFake,"200","ale","2010/12/03");
+        var caffe = new Snack(caffeFake,"50","ale","2010/11/15");
+
+        var snacks = new SnackCollection();
+
+        snacks.add(spaghetti);
+        snacks.add(frittata);
+
+        this.assertEquals([[spaghetti, frittata]], snacks.groupByDate());
+        this.assertEquals(350, snacks.sumCalories());
+        this.assertEquals([frittata, spaghetti], snacks.getCollection());
+
+        snacks.add(gelato);
+
+        this.assertEquals([[gelato], [spaghetti, frittata]], snacks.groupByDate());
+        this.assertEquals([gelato, frittata, spaghetti], snacks.getCollection());
+
+        snacks.add(pane);        
+        snacks.add(caffe);
+
+        this.assertEquals([[gelato],[pane],[spaghetti, frittata],[caffe]], snacks.groupByDate());
+        this.assertEquals([gelato, pane, frittata, spaghetti, caffe], snacks.getCollection());
+        
+    },
+
+    testValidation: function() {
+
+        var today = new Date(2010,11,1);
+        var foods = new FoodList();
+        foods.addFood("carotaFake", "100", "legumi");
+
+        var carotaFake = new Snack(foods.getFood("carotaFake"),50,"fabio",today);
+        this.assertEquals("", carotaFake.validation().getMessage());
+
+        var carotaFake2 = new Snack("","g6","fabio",today);
+        this.assertEquals("<ul><li>Select a food</li><li>Insert a numerical quantity</li></ul>", carotaFake2.validation().getMessage());
+    },
+
+    testFinal: function() { // verificare che va fatto qui
+        
+        var snacks = new SnackCollection();
+        var today = new Date(2010,11,1);
+        var tomorrow = new Date(2010,11,2);
+        var foods = new FoodList();
+
+        foods.addFood("carotaFake", "100", "legumi");
+        foods.addFood("tortaFake", "200", "dolci");
+
+        var carotaFake = new Snack(foods.getFood("carotaFake"),50,"fabio",today);
+        var tortaFake = new Snack(foods.getFood("tortaFake"),150,"fabio",tomorrow);
+        var tortaFake2 = new Snack(foods.getFood("tortaFake"),80,"fabio",today);
+
+        snacks.add(carotaFake);
+        snacks.add(tortaFake);
+        snacks.add(tortaFake2);
+
+        this.assertEquals(510, snacks.sumCalories());
+        this.assertEquals([[tortaFake], [carotaFake, tortaFake2]], snacks.groupByDate());
+
+        var arraydate = snacks.groupByDate();
+        this.assertEquals(arraydate[0][0].date,new Date(2010,11,2));
+        this.assertEquals(arraydate[0][0].getDate(),"2010/12/02");
+        this.assertEquals(arraydate[1][1].getDate(),"2010/12/01");
+       /* */
+        
+    },
+
+});
